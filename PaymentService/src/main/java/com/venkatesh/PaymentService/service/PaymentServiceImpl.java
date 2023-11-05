@@ -34,11 +34,10 @@ public class PaymentServiceImpl implements PaymentService{
     }
 
     @Override
-    public PaymentResponse getPaymentDetailsByOrderId(long orderId) {
-        log.info("@@@@@@@@@@@@@@@@@@@@@@@@Getting payment details for the order Id: {} ",orderId);
-        TransactionDetails transactionDetails=transactionDetailsRepository.findByOrderId(orderId);
-        log.info("**************************** after invoking jpa repository");
-        log.info("444444444444 > {}",transactionDetails.getId());
+    public PaymentResponse getPaymentDetailsByOrderId(String orderId) {
+        log.info(">>>Getting payment details for the order Id: {} ",orderId);
+        TransactionDetails transactionDetails=transactionDetailsRepository.findByOrderId(Long.valueOf(orderId));
+
         PaymentResponse paymentResponse=PaymentResponse
                 .builder()
                 .paymentId(transactionDetails.getId())
@@ -46,11 +45,8 @@ public class PaymentServiceImpl implements PaymentService{
                 .paymentDate(transactionDetails.getPaymentDate())
                 .orderId(transactionDetails.getOrderId())
                 .status(transactionDetails.getPaymentStatus())
-
+                .amount(transactionDetails.getAmount())
                 .build();
-        log.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ after objecte crated with builder");
-
         return paymentResponse;
     }
-
 }

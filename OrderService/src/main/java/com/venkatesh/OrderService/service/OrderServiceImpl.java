@@ -37,11 +37,11 @@ public class OrderServiceImpl implements OrderService{
         //Product Service -> Block Products (Reduce the Quantity)
         //Payment Service -> Payments -> Success -> COMPLETE,   Else CANCELLED
 
-        log.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>Placing Order Request: {}",orderRequest);
+        log.info(">>> Placing Order Request: {}",orderRequest);
 
         productService.reduceQuantity(orderRequest.getProductId(),orderRequest.getQuantity());
 
-        log.info(">>>>>>>>>>>>>>>>>>>>Creating Order with Status CREATED");
+        log.info(">>> Creating Order with Status CREATED");
 
 
         Order order= Order.builder().amount(orderRequest.getTotalAmount())
@@ -50,7 +50,7 @@ public class OrderServiceImpl implements OrderService{
                 .productId(orderRequest.getProductId())
                 .build();
         order=orderRepository.save(order);
-        log.info(">>>>>>>>>>>>>>>>Order placed successfully: {}",order.getId());
+        log.info(">>> Order placed successfully: {}",order.getId());
 
 
         PaymentRequest paymentRequest=PaymentRequest.builder()
@@ -65,12 +65,12 @@ public class OrderServiceImpl implements OrderService{
             orderStatus="PLACED";
 
         } catch (Exception e){
-            log.error(">>>>>>>>>>>>>>>>>>Error occurred in payment. Changing order status");
+            log.error("===>>>Error occurred in payment. Changing order status");
             orderStatus="PAYMENT_FAILED";
         }
         order.setOrderStatus(orderStatus);
         orderRepository.save(order);
-        log.info("Order palced successfully with Order Id: {}",order.getId());
+        log.info(">>> Order palced successfully with Order Id: {}",order.getId());
         return order.getId() ;
     }
 
@@ -86,7 +86,7 @@ public class OrderServiceImpl implements OrderService{
 
         PaymentResponse paymentResponse
                 =restTemplate.getForObject(
-                        "http://PAYMENT-SERVICE/payment/order/"+orderId,
+                        "http://PAYMENT-SERVICE/payment/order/"+order.getId(),
                 PaymentResponse.class);
 
 
@@ -96,7 +96,7 @@ public class OrderServiceImpl implements OrderService{
                 .price(productResponse.getPrice())
                 .quantity(productResponse.getQuantity())
                 .build();
-        log.info(">>>>>>>>>>>>>>>>>>>>>>Getting payment infor form payment Service");
+        log.info(">>>>>>>>>>>>>>>>>>>>>>Getting payment info form payment Service");
 
         OrderResponse.PaymentDetails paymentDetails
                 =OrderResponse.PaymentDetails
