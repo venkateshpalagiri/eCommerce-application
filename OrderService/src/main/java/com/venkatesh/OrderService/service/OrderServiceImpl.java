@@ -5,6 +5,7 @@ import com.venkatesh.OrderService.exception.CustomException;
 import com.venkatesh.OrderService.external.client.PaymentService;
 import com.venkatesh.OrderService.external.client.ProductService;
 import com.venkatesh.OrderService.external.request.PaymentRequest;
+import com.venkatesh.OrderService.external.response.PaymentResponse;
 import com.venkatesh.OrderService.model.OrderRequest;
 import com.venkatesh.OrderService.model.OrderResponse;
 
@@ -45,7 +46,9 @@ public class OrderServiceImpl implements OrderService{
 
         Order order= Order.builder().amount(orderRequest.getTotalAmount())
                 .orderDate(Instant.now()).orderStatus("CREATED")
-                .quantity(orderRequest.getQuantity()).build();
+                .quantity(orderRequest.getQuantity())
+                .productId(orderRequest.getProductId())
+                .build();
         order=orderRepository.save(order);
         log.info(">>>>>>>>>>>>>>>>Order placed successfully: {}",order.getId());
 
@@ -77,7 +80,14 @@ public class OrderServiceImpl implements OrderService{
         Order order=orderRepository.findById(orderId).orElseThrow(()->new CustomException("Order not found with given Id"+orderId,"NOT_FOUND",404));
 
         log.info(">>>>>>>>>>>>>>>>>>>>>>Invoking Product service to fetch the product for id {} ",order.getId());
-        ProductResponse productResponse= restTemplate.getForObject("http://PRODUCT-SERVICE/product/"+order.getId(),ProductResponse.class);
+        ProductResponse productResponse= restTemplate
+                .getForObject("http://PRODUCT-SERVICE/product/"+order.getId(),ProductResponse.class);
+        log.info((">>>>>>>>>>>>>>>>Getting payment information form the payment servcie ****** {}"),orderId);
+
+        PaymentResponse paymentResponse
+                =restTemplate.getForObject(
+                        "http://PAYMENT-SERVICE/payment/order/"+orderId,
+                PaymentResponse.class);
 
 
         OrderResponse.ProductDetails productDetails=OrderResponse.ProductDetails.builder()
@@ -88,6 +98,15 @@ public class OrderServiceImpl implements OrderService{
                 .build();
         log.info(">>>>>>>>>>>>>>>>>>>>>>Getting payment infor form payment Service");
 
+        OrderResponse.PaymentDetails paymentDetails
+                =OrderResponse.PaymentDetails
+                .builder()
+                .paymentId(paymentResponse.getPaymentId())
+                .paymentStatus(paymentResponse.getStatus())
+                .paymentDate(paymentResponse.getPaymentDate())
+                .paymentMode(paymentResponse.getPaymentMode())
+                .build();
+
 
 
 
@@ -97,6 +116,7 @@ public class OrderServiceImpl implements OrderService{
                 .amount(order.getAmount())
                 .orderDate(order.getOrderDate())
                 .productDetails(productDetails)
+                .paymentDetails(paymentDetails)
                 .build();
         return orderResponse;
     }
