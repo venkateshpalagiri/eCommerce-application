@@ -4,7 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d271204-72ce-42b5-b842-8a7b08734f3d" name="Changes" comment="" />
+    <list default="true" id="9d271204-72ce-42b5-b842-8a7b08734f3d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CloudGateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CloudGateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CloudGateway/src/main/java/com/venkatesh/CloudGateway/CloudGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CloudGateway/src/main/java/com/venkatesh/CloudGateway/CloudGatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CloudGateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/CloudGateway/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/com/venkatesh/OrderService/config/FeignConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/com/venkatesh/OrderService/config/FeignConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/com/venkatesh/OrderService/external/client/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/com/venkatesh/OrderService/external/client/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/com/venkatesh/OrderService/external/client/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/com/venkatesh/OrderService/external/client/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/target/classes/com/venkatesh/OrderService/config/FeignConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/target/classes/com/venkatesh/OrderService/config/FeignConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/target/classes/com/venkatesh/OrderService/external/client/PaymentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/target/classes/com/venkatesh/OrderService/external/client/PaymentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/target/classes/com/venkatesh/OrderService/external/client/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/target/classes/com/venkatesh/OrderService/external/client/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/target/classes/com/venkatesh/OrderService/service/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/target/classes/com/venkatesh/OrderService/service/OrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/venkatesh/PaymentService/entity/TransactionDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/venkatesh/PaymentService/entity/TransactionDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/target/classes/com/venkatesh/PaymentService/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/target/classes/com/venkatesh/PaymentService/controller/PaymentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/target/classes/com/venkatesh/PaymentService/entity/TransactionDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/target/classes/com/venkatesh/PaymentService/entity/TransactionDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/target/classes/com/venkatesh/PaymentService/service/PaymentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/target/classes/com/venkatesh/PaymentService/service/PaymentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/target/classes/com/venkatesh/PaymentService/service/PaymentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/target/classes/com/venkatesh/PaymentService/service/PaymentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductService/src/main/java/com/venkatesh/ProductService/model/ProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProductService/src/main/java/com/venkatesh/ProductService/model/ProductRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductService/src/main/java/com/venkatesh/ProductService/service/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProductService/src/main/java/com/venkatesh/ProductService/service/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductService/target/classes/com/venkatesh/ProductService/model/ProductRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/ProductService/target/classes/com/venkatesh/ProductService/model/ProductRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductService/target/classes/com/venkatesh/ProductService/service/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/ProductService/target/classes/com/venkatesh/ProductService/service/ProductServiceImpl.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,10 +50,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2XjxVxmznuXVw2PJkbj4aHgeEyD" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -40,7 +67,11 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "getting-payment-details-for-getOrderAPI",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "C:/Users/venka/OneDrive/Documents/GitHub/eCommerce-application/CloudGateway",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
@@ -49,7 +80,20 @@
       <recent name="com.venkatesh.OrderService.external.response" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.OrderServiceApplication">
+  <component name="RunManager" selected="Application.ProductServiceApplication">
+    <configuration name="CloudGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.venkatesh.CloudGateway.CloudGatewayApplication" />
+      <module name="CloudGateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.venkatesh.CloudGateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ConfigServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.venkatesh.ConfigServer.ConfigServerApplication" />
       <module name="ConfigServer" />
@@ -102,26 +146,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServiceRegistryApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.venkatesh.serviceregistry.ServiceRegistryApplication" />
-      <module name="service-registry" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.venkatesh.serviceregistry.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.OrderServiceApplication" />
-        <item itemvalue="Application.PaymentServiceApplication" />
         <item itemvalue="Application.ProductServiceApplication" />
+        <item itemvalue="Application.OrderServiceApplication" />
+        <item itemvalue="Application.CloudGatewayApplication" />
+        <item itemvalue="Application.PaymentServiceApplication" />
         <item itemvalue="Application.ConfigServerApplication" />
-        <item itemvalue="Application.ServiceRegistryApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -136,19 +167,33 @@
     </task>
     <servers />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/PaymentService/src/main/java/com/venkatesh/PaymentService/controller/PaymentController.java</url>
-          <line>24</line>
-          <properties class="com.venkatesh.PaymentService.controller.PaymentController" method="getPaymentDetailsByOrderId">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.cloud:spring-cloud-context" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
