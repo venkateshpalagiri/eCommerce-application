@@ -64,6 +64,8 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
