@@ -5,10 +5,12 @@ import com.venkatesh.OrderService.exception.CustomException;
 import com.venkatesh.OrderService.external.client.PaymentService;
 import com.venkatesh.OrderService.external.client.ProductService;
 import com.venkatesh.OrderService.external.request.PaymentRequest;
+import com.venkatesh.OrderService.external.response.PaymentResponse;
 import com.venkatesh.OrderService.model.OrderRequest;
 import com.venkatesh.OrderService.model.OrderResponse;
 
 import com.venkatesh.OrderService.repository.OrderRepository;
+
 
 import com.venkatesh.ProductService.model.ProductResponse;
 import lombok.extern.log4j.Log4j2;
@@ -36,18 +38,21 @@ public class OrderServiceImpl implements OrderService{
         //Product Service -> Block Products (Reduce the Quantity)
         //Payment Service -> Payments -> Success -> COMPLETE,   Else CANCELLED
 
-        log.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>Placing Order Request: {}",orderRequest);
+        log.info(">>> Placing Order Request: {}",orderRequest);
 
         productService.reduceQuantity(orderRequest.getProductId(),orderRequest.getQuantity());
 
-        log.info(">>>>>>>>>>>>>>>>>>>>Creating Order with Status CREATED");
+
+        log.info(">>> Creating Order with Status CREATED");
 
 
         Order order= Order.builder().amount(orderRequest.getTotalAmount())
                 .orderDate(Instant.now()).orderStatus("CREATED")
-                .quantity(orderRequest.getQuantity()).build();
+                .quantity(orderRequest.getQuantity())
+                .productId(orderRequest.getProductId())
+                .build();
         order=orderRepository.save(order);
-        log.info(">>>>>>>>>>>>>>>>Order placed successfully: {}",order.getId());
+        log.info(">>> Order placed successfully: {}",order.getId());
 
 
         PaymentRequest paymentRequest=PaymentRequest.builder()
@@ -58,26 +63,36 @@ public class OrderServiceImpl implements OrderService{
         String orderStatus=null;
         try {
             paymentService.doPayment(paymentRequest );
-            log.info("Payment done successfully. Changing the order status");
+            log.info("Payment done successfully. Changing the order status to PLACED");
             orderStatus="PLACED";
 
         } catch (Exception e){
-            log.error(">>>>>>>>>>>>>>>>>>Error occurred in payment. Changing order status");
+            log.error("===>>>Error occurred in payment. Changing order status to FAILED");
             orderStatus="PAYMENT_FAILED";
         }
         order.setOrderStatus(orderStatus);
         orderRepository.save(order);
-        log.info("Order palced successfully with Order Id: {}",order.getId());
+        log.info(">>> Order placed successfully with Order Id: {}",order.getId());
         return order.getId() ;
     }
 
     @Override
     public OrderResponse getOrderDetails(long orderId) {
         log.info(">>>>>>>>>>>>>>>>>Get order details for Order Id : {}",orderId);
-        Order order=orderRepository.findById(orderId).orElseThrow(()->new CustomException("Order not found with given Id"+orderId,"NOT_FOUND",404));
+        Order order=orderRepository.findById(orderId)
+                .orElseThrow(()->new CustomException("Order not found with given Id:"+orderId,"NOT_FOUND",404));
 
         log.info(">>>>>>>>>>>>>>>>>>>>>>Invoking Product service to fetch the product for id {} ",order.getId());
-        ProductResponse productResponse= restTemplate.getForObject("http://PRODUCT-SERVICE/product/"+order.getId(),ProductResponse.class);
+        ProductResponse productResponse= restTemplate
+                .getForObject("http://PRODUCT-SERVICE/product/"+order.getId(),ProductResponse.class);
+        log.info((">>>>>>>>>>>>>>>>Getting payment information form the payment servcie ****** {}"),orderId);
+
+//        <========================= BugFix Needed =======================================
+//
+//        PaymentResponse paymentResponse=restTemplate
+//                .getForObject("http://PAYMENT-SERVICE/payment/"+order.getId(),PaymentResponse.class);
+//
+//        ========================= BugFix Needed =======================================>
 
 
         OrderResponse.ProductDetails productDetails=OrderResponse.ProductDetails.builder()
@@ -86,7 +101,21 @@ public class OrderServiceImpl implements OrderService{
                 .price(productResponse.getPrice())
                 .quantity(productResponse.getQuantity())
                 .build();
-        log.info(">>>>>>>>>>>>>>>>>>>>>>Getting payment infor form payment Service");
+
+        log.info(">>>>>>>>>>>>>>>>>>>>>>Getting payment info form payment Service");
+
+//        <========================= BugFix Needed =======================================
+//
+//        OrderResponse.PaymentDetails paymentDetails
+//                =OrderResponse.PaymentDetails
+//                .builder()
+//                .paymentId(paymentResponse.getPaymentId())
+//                .paymentStatus(paymentResponse.getStatus())
+//                .paymentDate(paymentResponse.getPaymentDate())
+//                .paymentMode(paymentResponse.getPaymentMode())
+//                .build();
+//
+//        ========================= BugFix Needed =======================================>
 
 
 
@@ -97,6 +126,7 @@ public class OrderServiceImpl implements OrderService{
                 .amount(order.getAmount())
                 .orderDate(order.getOrderDate())
                 .productDetails(productDetails)
+//                .paymentDetails(paymentDetails)
                 .build();
         return orderResponse;
     }

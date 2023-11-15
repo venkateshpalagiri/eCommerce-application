@@ -1,10 +1,10 @@
-package com.venkatesh.OrderService;
+package com.venkatesh.CloudGateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OrderServiceApplicationTests {
+class CloudGatewayApplicationTests {
 
 	@Test
 	void contextLoads() {
